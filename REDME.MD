@@ -49,4 +49,8 @@ Créer une application basée sur une architecture micro-service qui permet de g
 <img src="captures/C6.png">
 <img src="captures/C7.png">
 
+- **Deuxième Partie**
+<img src="captures/P1.png">
+<img src="captures/P2.png">
+<img src="captures/P3.png">
 
