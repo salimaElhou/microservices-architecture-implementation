@@ -1,6 +1,7 @@
 package elhou.salima.billingservice.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import elhou.salima.billingservice.model.Product;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -20,10 +21,13 @@ public class ProductItem {
     private double quantity;
     private double price;
     private  long productID;
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @ManyToOne
     private Bill bill;
     @Transient
     private Product product;
+    @Transient //makunach f BD
+    private String productName;
 
 
 }
