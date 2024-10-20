@@ -1,0 +1,25 @@
+<div class="container">
+  <table class="table" *ngIf="customer && customer._embedded && customer._embedded.customers?.length">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Email</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let p of customer._embedded.customers">
+      <td>{{ p.id }}</td>
+      <td>{{ p.name }}</td>
+      <td>{{ p.email }}</td>
+      <td>
+        <button class ="btn btn-success" (click)="getBill(p)"> Factures </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="customer && (!customer._embedded || !customer._embedded.customers?.length)">
+    No customers available.
+  </div>
+</div>

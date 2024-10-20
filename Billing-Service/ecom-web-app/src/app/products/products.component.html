@@ -1,0 +1,23 @@
+<div class="container">
+  <table class="table" *ngIf="products && products._embedded?.products?.length">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Quantity</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let p of products._embedded.products">
+      <td>{{ p.id }}</td>
+      <td>{{ p.name }}</td>
+      <td>{{ p.price | currency:'USD':'symbol':'1.2-2' }}</td> <!-- Currency pipe for formatting -->
+      <td>{{ p.quantity }}</td>
+    </tr>
+    </tbody>
+  </table>
+  <div *ngIf="products && (!products._embedded?.products || !products._embedded.products.length)">
+    No products available.
+  </div>
+</div>

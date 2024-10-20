@@ -2,11 +2,21 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: r1 # route 1
-          uri: http://localhost:8080/ # L'URI cible pour cette route
+        - id: r1 # Route 1 for customers
+          uri: http://localhost:8080/ # Target URI for this route
           predicates:
             - Path=/customers/**
-        - id: r2 # route 2
-          uri: http://localhost:8082/ # L'URI cible pour cette route
+        - id: r2 # Route 2 for products
+          uri: http://localhost:8082/ # Target URI for this route
           predicates:
             - Path=/products/**
+      globalcors:
+        corsConfigurations:
+          '[/**]': # Allow CORS for all paths
+            allowedOrigins: "http://localhost:4200"
+            allowedHeaders: "*"
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
